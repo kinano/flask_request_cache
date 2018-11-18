@@ -1,0 +1,12 @@
+version: "3.7"
+services:
+  api:
+    image: kinano/flask
+    ports:
+      - "5000:5000"
+    volumes:
+      # Map the app source code folder
+      - ./app:/app
+    # Restart the container on failure
+    restart: on-failure
+    command: ["python3", "/app/run.py"]
